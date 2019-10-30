@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 	"strings"
 	"time"
 
@@ -17,7 +18,7 @@ import (
 func main() {
 	// set up config directory
 	configDir, _ := os.UserConfigDir()
-	configDir += "/chat"
+	configDir = filepath.Join(configDir, "chat")
 	_ = os.MkdirAll(configDir, 0700)
 
 	// load or generate user files
